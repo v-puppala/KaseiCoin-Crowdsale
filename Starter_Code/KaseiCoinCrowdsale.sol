@@ -35,11 +35,12 @@ contract KaseiCoinCrowdsaleDeployer {
     public {
         // Create a new instance of the KaseiCoin contract.
         // YOUR CODE HERE!
-        kasei=KaseiCoin(name,symbol,initial_supply=0);
-        
+        kasei=new KaseiCoin(name,symbol,initial_supply=0);
+        kasei_address=address(kasei);
         
         // Assign the token contract’s address to the `kasei_token_address` variable.
         // YOUR CODE HERE!
+        //hi
 
         // Create a new instance of the `KaseiCoinCrowdsale` contract
         // YOUR CODE HERE!
