@@ -34,7 +34,6 @@ contract KaseiCoinCrowdsaleDeployer {
     )
     public {
         // Create a new instance of the KaseiCoin contract.
-        // YOUR CODE HERE!
         
         kasei_token_address=address(KaseiCoin);
         
@@ -42,7 +41,7 @@ contract KaseiCoinCrowdsaleDeployer {
         //hi
 
         // Create a new instance of the `KaseiCoinCrowdsale` contract
-            kasei token=new KaseiCoin(name,symbol,initial_supply=0);
+        KaseiCoin token=new KaseiCoin(name,symbol,initial_supply=0);
         kasei_crowdsale_address=address(KaseiCoinCrowdsale);
 
         // Set the `KaseiCoinCrowdsale` contract as a minter
