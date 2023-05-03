@@ -20,7 +20,7 @@ contract KaseiCoinCrowdsale is Crowdsale, MintedCrowdsale{ // UPDATE THE CONTRAC
     }
 }
 
-/*
+
 contract KaseiCoinCrowdsaleDeployer {
 
     address public kasei_token_address; 
@@ -35,24 +35,18 @@ contract KaseiCoinCrowdsaleDeployer {
     public {
         // Create a new instance of the KaseiCoin contract.
         // YOUR CODE HERE!
-        kasei=new KaseiCoin(name,symbol,initial_supply=0);
-        kasei_address=address(kasei);
+        
+        kasei_token_address=address(KaseiCoin);
         
         // Assign the token contract’s address to the `kasei_token_address` variable.
-        // YOUR CODE HERE!
         //hi
 
         // Create a new instance of the `KaseiCoinCrowdsale` contract
-        // YOUR CODE HERE!
-            
-        // Aassign the `KaseiCoinCrowdsale` contract’s address to the `kasei_crowdsale_address` variable.
-        // YOUR CODE HERE!
+            kasei token=new KaseiCoin(name,symbol,initial_supply=0);
+        kasei_crowdsale_address=address(KaseiCoinCrowdsale);
 
         // Set the `KaseiCoinCrowdsale` contract as a minter
-        // YOUR CODE HERE!
-        
-        // Have the `KaseiCoinCrowdsaleDeployer` renounce its minter role.
-        // YOUR CODE HERE!
+        token.addMinter(kasei_crowdsale_address);
+        token.renounceMinter();
     }
 }
-*/
