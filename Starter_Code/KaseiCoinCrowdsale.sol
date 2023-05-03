@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.5.5;
 
 import "./KaseiCoin.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/Crowdsale.sol";
@@ -34,18 +34,19 @@ contract KaseiCoinCrowdsaleDeployer {
     )
     public {
         // Create a new instance of the KaseiCoin contract.
-        
-        kasei_token_address=address(KaseiCoin);
+        KaseiCoin token=new KaseiCoin(name,symbol,0);
         
         // Assign the token contract’s address to the `kasei_token_address` variable.
+        kasei_token_address=address(token);
         //hi
 
         // Create a new instance of the `KaseiCoinCrowdsale` contract
-        KaseiCoin token=new KaseiCoin(name,symbol,0);
-        kasei_crowdsale_address=address(KaseiCoinCrowdsale);
+        KaseiCoinCrowdsale crowdsale=new KaseiCoinCrowdsale(1,wallet,token);
+        kasei_crowdsale_address=address(crowdsale);
 
         // Set the `KaseiCoinCrowdsale` contract as a minter
         token.addMinter(kasei_crowdsale_address);
         token.renounceMinter();
     }
 }
+
